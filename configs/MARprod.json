@@ -1,0 +1,22 @@
+{
+    "name": "Flood & Sea Level Rise",
+	"pluginHeight": 450,
+	"regions": [
+		{
+			"name": "Coastal Resilience data",
+			"extent": {"xmin":-9921210.4677,"ymin":1767838.9513,"xmax":-9462636.0097,"ymax":2561441.1491,"spatialReference":{"wkid":102100,"latestWkid":3857}},
+			"methods": "http://coastalresilience.org/project-areas/mesoamerican-reef-introduction",
+			"variables": [
+				{"name":"Choose Sea Level Rise", "index":0, "values":[{"name":"Sea level","value":"-1"},{"name":"1-meter rise","value":"0"},{"name":"2-meter", "value":"1"}]}
+				],
+			"mainURL": "http://services.coastalresilience.org:6080/arcgis/rest/services/Meso_American_Reef/MAR_Flood_and_SLR/MapServer",
+			"combos": {
+			
+				"-1": [{"type":"dynamic","show":[-1]}],
+				"0": [{"type":"dynamic","show":[0]}],
+				"1": [{"type":"dynamic","show":[1]}]
+			
+			}
+		}
+	]
+}

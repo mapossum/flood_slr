@@ -1,0 +1,91 @@
+{
+    "name": "Flood & Sea Level Rise",
+	"pluginHeight": 450,
+	"regions": [
+		{
+			"name": "CT CR Data",
+			"extent": {"xmin":-8256101.094402712,"ymin":4958296.747102872,"xmax":-7999073.581303576,"ymax":5079734.017205584,"spatialReference":{"wkid":102100,"latestWkid":3857}},
+			"methods": "methods/SLR.pdf",
+			"variables": [
+				{"name":"Choose Year", "index":0, "values":[{"name":"Current","value":"Current", "help": "Year 2010"},{"name":"2020", "value":"2020"}, {"name":"2050", "value":"2050"}, {"name":"2080", "value":"2080"}]},
+				{"name":"Choose Sea Level Rise", "index":1, "values":[ {"name":"None","value":"None"},{"name":"Low","value":"Low"},{"name":"Medium","value":"Medium"},{"name":"High","value":"High"}]},
+				{"name":"Choose Storm Surge", "index":2, "values":[ {"name":"None","value":"None"},{"name":"Category 2","value":"c2", "default": true},{"name":"Category 3","value":"c3"}]}
+				],
+			"mainURL": "http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Connecticut/CT_Flood_and_SLR/MapServer",
+			"combos": {
+			
+				"Current|None|None": undefined,
+				"2020|None|None": undefined, 
+				"2050|None|None": undefined,
+				"2080|None|None": undefined,	
+				"Current|Low|None": undefined,
+				"2020|Low|None": [{"type":"dynamic","show":[26]}], 
+				"2050|Low|None": [{"type":"dynamic","show":[23]}],
+				"2080|Low|None": [{"type":"dynamic","show":[20]}],
+				"Current|Medium|None": undefined,
+				"2020|Medium|None": [{"type":"dynamic","show":[25]}], 
+				"2050|Medium|None": [{"type":"dynamic","show":[22]}],
+				"2080|Medium|None": [{"type":"dynamic","show":[19]}],
+				"Current|High|None": undefined,
+				"2020|High|None": [{"type":"dynamic","show":[24]}], 
+				"2050|High|None": [{"type":"dynamic","show":[21]}],
+				"2080|High|None": [{"type":"dynamic","show":[18]}],
+				
+				"Current|None|c2": [{"type":"dynamic","show":[28]}],
+				"2020|None|c2": undefined, 
+				"2050|None|c2": undefined,
+				"2080|None|c2": undefined,	
+				"Current|Low|c2": undefined,
+				"2020|Low|c2": [{"type":"dynamic","show":[8]}], 
+				"2050|Low|c2": [{"type":"dynamic","show":[5]}],
+				"2080|Low|c2": [{"type":"dynamic","show":[2]}],
+				"Current|Medium|c2": undefined,
+				"2020|Medium|c2": [{"type":"dynamic","show":[7]}], 
+				"2050|Medium|c2": [{"type":"dynamic","show":[4]}],
+				"2080|Medium|c2": [{"type":"dynamic","show":[1]}],
+				"Current|High|c2": undefined,
+				"2020|High|c2": [{"type":"dynamic","show":[6]}], 
+				"2050|High|c2": [{"type":"dynamic","show":[3]}],
+				"2080|High|c2": [{"type":"dynamic","show":[0]}],	
+				
+				"Current|None|c3": [{"type":"dynamic","show":[27]}],
+				"2020|None|c3": undefined, 
+				"2050|None|c3": undefined,
+				"2080|None|c3": undefined,	
+				"Current|Low|c3": undefined,
+				"2020|Low|c3": [{"type":"dynamic","show":[17]}], 
+				"2050|Low|c3": [{"type":"dynamic","show":[14]}],
+				"2080|Low|c3": [{"type":"dynamic","show":[11]}],
+				"Current|Medium|c3": undefined,
+				"2020|Medium|c3": [{"type":"dynamic","show":[16]}], 
+				"2050|Medium|c3": [{"type":"dynamic","show":[13]}],
+				"2080|Medium|c3": [{"type":"dynamic","show":[10]}],
+				"Current|High|c3": undefined,
+				"2020|High|c3": [{"type":"dynamic","show":[15]}], 
+				"2050|High|c3": [{"type":"dynamic","show":[12]}],
+				"2080|High|c3": [{"type":"dynamic","show":[9]}]
+			
+			}
+		},
+		{
+			"name": "NOAA SLR Data",
+			"extent": {"xmin":-8256101.094402712,"ymin":4958296.747102872,"xmax":-7999073.581303576,"ymax":5079734.017205584,"spatialReference":{"wkid":102100,"latestWkid":3857}},
+			"methods": "http://coast.noaa.gov/digitalcoast/tools/slr",
+			variables: [
+				{"name":"Choose SLR", "index":0, "values":[{"name":"Current","value":"0", "help": "Year 2010"},{"name":"1 ft", "value":"1"}, {"name":"2 ft", "value":"2"}, {"name":"3 ft", "value":"3"}, {"name":"4 ft", "value":"4"}, {"name":"5 ft", "value":"5"}, {"name":"6 ft", "value":"6"}]}
+				],
+			combos: {
+			
+				"0": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_0ft/MapServer"}],
+				"1": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_1ft/MapServer"}], 
+				"2": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_2ft/MapServer"}],
+				"3": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_3ft/MapServer"}],	
+				"4": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_4ft/MapServer"}],
+				"5": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_5ft/MapServer"}], 
+				"6": [{"type":"tiled", "url": "http://www.csc.noaa.gov/ArcGISPUB/rest/services/dc_slr/slr_6ft/MapServer"}]
+
+			
+			}
+		}
+	]
+}
